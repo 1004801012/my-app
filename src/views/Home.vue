@@ -19,3 +19,8 @@ export default {
   }
 }
 </script>
+<style lang="stylus">
+  img
+    width 129px
+    height 129px
+</style>
