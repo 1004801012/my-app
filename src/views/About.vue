@@ -1,19 +1,25 @@
 <template>
   <div class="about">
-    <h1>This is an about page{{n}}</h1>
+    <h1>This is an about page</h1>
+    <img alt="Vue logo" id="img" @dblclick="cl" src="../assets/qrcode.jpg">
   </div>
 </template>
 
 <script>
+const wx = require('weixin-js-sdk')
 export default {
   name: 'about',
-  data () {
-    return {
-      n: 12
+  methods: {
+    cl () {
+      wx.previewImage({
+        current: document.getElementById('img').getAttribute('src'), // 当前显示图片的http链接
+        urls: [document.getElementById('img').getAttribute('src')] // 需要预览的图片http链接列表
+      })
     }
   },
-  created () {
-    console.log(this.n)
+  mounted () {
+    console.log(wx)
   }
 }
+
 </script>
