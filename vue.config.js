@@ -4,7 +4,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://192.168.110.46:8080',
+        target: 'https://fy-o2o.lianlianpay.com',
         ws: true,
         changeOrigin: true,
         pathRewrite: {

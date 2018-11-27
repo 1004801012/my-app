@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import Qs from 'qs'
 const wx = require('weixin-js-sdk')
 export default {
   name: 'about',
@@ -20,11 +21,17 @@ export default {
   mounted () {
     console.log(wx)
     this.$http({
-      method: 'post',
-      url: '/api/sendSMS.do',
-      data: {
-        login_id: 'gdp960215',
-        pwd: 'gdp960215'
+      method: 'get',
+      url: '/api/opermngform/opermngform/routeQuery/routeQueryInit.do',
+      // data: Qs.stringify({
+      //   login_id: 'gdp960215',
+      //   pwd: 'gdp960215',
+      //   smsCode: '333115'
+      //
+      // }),
+      dataType: 'json',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     }).then(function (res) {
       console.log(res)
