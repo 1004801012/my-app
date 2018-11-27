@@ -1,14 +1,16 @@
 {
-  "name": "my-app",
+  "name": "receipt-h5",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "devbuild": "vue-cli-service build --mode development",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
@@ -30,6 +32,7 @@
     "less-loader": "^4.1.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "vconsole": "^3.2.0",
     "vue-loader": "^14.2.2",
     "vue-template-compiler": "^2.5.17",
     "vux-loader": "^1.2.9"

@@ -1,6 +1,17 @@
 module.exports = {
+  baseUrl: 'receipt-h5',
+  outputDir: 'dist/receipt-h5',
   devServer: {
-    proxy: 'http://192.168.110.46:8080'
+    proxy: {
+      '/api': {
+        target: 'http://192.168.110.46:8080',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/'
+        }
+      }
+    }
   },
   configureWebpack: config => {
     require('vux-loader').merge(config, {
@@ -8,4 +19,11 @@ module.exports = {
       plugins: ['vux-ui']
     })
   }
+}
+if (process.env.NODE_ENV === 'production') {
+  // 线上接口路径
+  process.env.VUE_APP_URL = '1'
+} else {
+  // 测试接口路径
+  process.env.VUE_APP_URL = '2'
 }

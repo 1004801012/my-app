@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <img alt="Vue logo" id="img" @dblclick="cl" src="../assets/qrcode.jpg">
+    <img alt="Vue logo" id="img" @click="cl" src="../assets/qrcode.jpg">
   </div>
 </template>
 
@@ -19,6 +19,16 @@ export default {
   },
   mounted () {
     console.log(wx)
+    this.$http({
+      method: 'post',
+      url: '/api/sendSMS.do',
+      data: {
+        login_id: 'gdp960215',
+        pwd: 'gdp960215'
+      }
+    }).then(function (res) {
+      console.log(res)
+    })
   }
 }
 
